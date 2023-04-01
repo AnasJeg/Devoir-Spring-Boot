@@ -9,8 +9,7 @@ import java.util.Date;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
