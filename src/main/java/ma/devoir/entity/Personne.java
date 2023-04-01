@@ -14,9 +14,10 @@ public abstract class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id;
-    protected String d;
+    protected String nom;
     protected String prenom;
     protected String cin;
 
+    @Temporal(TemporalType.DATE)
     protected Date dateN;
 }
