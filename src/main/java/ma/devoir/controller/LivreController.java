@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("api/livre")
 public class LivreController {
-
     @Autowired
     private LivreService livreService;
 
@@ -57,5 +56,11 @@ public class LivreController {
     public List<Livre> findBetweenDates(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")Date dd,
                                         @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date df){
         return livreService.findBetweenDates(dd,df);
+    }
+
+    @GetMapping("/startDate/{dd}/endDate/{df}")
+    public List<Livre> findBetweenDateDAndDateF(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")Date dd,
+                                        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date df){
+        return livreService.findLivresByDateEditionBetween(dd,df);
     }
 }

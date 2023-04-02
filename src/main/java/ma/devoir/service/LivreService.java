@@ -61,4 +61,8 @@ public class LivreService implements Dao<Livre> {
     public List<Livre> findBetweenDates(Date d1,Date d2){
         return livreRepo.findByDateEditionBetween(d1,d2);
     }
+    public List<Livre> findLivresByDateEditionBetween(Date d1,Date d2){
+        return livreRepo.findLivresByDateEditionBetween(d1,d2);
+    }
+
 }
