@@ -6,6 +6,7 @@ import ma.devoir.repository.AuteurRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -37,6 +38,13 @@ public class AuteurService implements Dao<Auteur> {
     @Override
     public void update(Auteur o) {
             auteurRepo.save(o);
+    }
+
+    public Auteur findByCIN(String cin){
+        return auteurRepo.findByCin(cin);
+    }
+    public List<Auteur> findByDate(Date date){
+        return auteurRepo.findByDateN(date);
     }
 
 }

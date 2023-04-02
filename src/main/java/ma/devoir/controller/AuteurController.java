@@ -3,8 +3,10 @@ package ma.devoir.controller;
 import ma.devoir.entity.Auteur;
 import ma.devoir.service.AuteurService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -31,9 +33,18 @@ public class AuteurController {
     public void update(@RequestBody Auteur a){
         auteurService.update(a);
     }
-    @GetMapping("/{id}")
-    public Auteur findId(@PathVariable int id){
+    @GetMapping("/id")
+    public Auteur findById(@RequestParam int id){
         return auteurService.findById(id);
     }
 
+    @GetMapping("/date")
+    public List<Auteur> findByDate(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
+        return auteurService.findByDate(date);
+    }
+
+    @GetMapping("/cin")
+    public Auteur findByCIN(@RequestParam String cin){
+       return auteurService.findByCIN(cin);
+    }
 }

@@ -5,9 +5,11 @@ import ma.devoir.entity.Livre;
 import ma.devoir.service.AuteurService;
 import ma.devoir.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -36,8 +38,8 @@ public class LivreController {
         livreService.update(l);
     }
 
-    @GetMapping("/{id}")
-    public Livre findID(@PathVariable int id){
+    @GetMapping("/id")
+    public Livre findByID(@RequestParam int id){
         return livreService.findById(id);
     }
 
@@ -49,5 +51,16 @@ public class LivreController {
     @GetMapping("/auteur/{id}")
     public Collection<Livre> findAllByAuteur(@PathVariable int id){
        return livreService.findAllByAuteur(id);
+    }
+
+    @GetMapping("/isbn")
+    public Livre findByISBN(@RequestParam String isbn){
+        return livreService.findByISBN(isbn);
+    }
+
+    @GetMapping("/dateD/{dd}/dateF/{df}")
+    public List<Livre> findBetweenDates(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd")Date dd,
+                                        @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date df){
+        return livreService.findBetweenDates(dd,df);
     }
 }

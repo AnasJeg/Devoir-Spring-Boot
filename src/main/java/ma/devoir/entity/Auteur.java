@@ -13,8 +13,10 @@ public class Auteur extends Personne{
     private String email;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="auteur_livres",
+   /* @JoinTable(name="auteur_livres",
             joinColumns= @JoinColumn(name="auteurs_id"),
             inverseJoinColumns= @JoinColumn(name="livres_id"))
+
+    */
     private Collection<Livre> livres;
 }
