@@ -42,7 +42,6 @@ public class AuteurController {
     public List<Auteur> findByDate(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
         return auteurService.findByDate(date);
     }
-
     @GetMapping("/cin")
     public Auteur findByCIN(@RequestParam String cin){
        return auteurService.findByCIN(cin);

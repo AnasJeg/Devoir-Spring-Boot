@@ -17,7 +17,6 @@ public abstract class Personne {
     protected String nom;
     protected String prenom;
     protected String cin;
-
     @Temporal(TemporalType.DATE)
     protected Date dateN;
 }

@@ -48,7 +48,8 @@ public class LivreService implements Dao<Livre> {
         return livreRepo.findByIsbn(isbn);
     }
     public Collection<Livre> findAllByAuteur(int id){
-        return auteurRepo.findAll().stream().filter(auteur -> auteur.getId()==id).findFirst().orElse(null)
+        return auteurRepo.findAll().stream().filter(auteur -> auteur.getId()==id).findFirst()
+                .orElse(null)
                 .getLivres();
     }
     public void affectLivreToAuteur(int idL,int idA){

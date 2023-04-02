@@ -9,6 +9,5 @@ import java.util.List;
 public interface LivreRepo extends JpaRepository<Livre,Integer> {
     Livre findById(int id);
     Livre findByIsbn(String isbn);
-
     List<Livre> findByDateEditionBetween(Date dateD,Date dateF);
 }

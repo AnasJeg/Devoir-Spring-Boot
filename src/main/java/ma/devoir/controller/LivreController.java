@@ -1,13 +1,10 @@
 package ma.devoir.controller;
 
-import ma.devoir.entity.Auteur;
 import ma.devoir.entity.Livre;
-import ma.devoir.service.AuteurService;
 import ma.devoir.service.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -18,8 +15,6 @@ public class LivreController {
 
     @Autowired
     private LivreService livreService;
-    @Autowired
-    private AuteurService auteurService;
 
     @GetMapping("/")
     public List<Livre> findAll(){
